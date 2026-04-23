@@ -1,44 +1,51 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
-    theme: {
-        extend: {
-            colors: {
-                bg: "#0C0C0C",
-                surface: "#141414",
-                "surface-hover": "#1A1A1A",
-                primary: "#F0F0F0",
-                secondary: "#666666",
-                accent: "#E8E8E8",
-                lime: "#C9F31D",
-                border: "rgba(255,255,255,0.08)",
-                "border-hover": "rgba(255,255,255,0.15)",
-            },
-            fontFamily: {
-                serif: ['"Instrument Serif"', "Georgia", "serif"],
-                sans: ['"DM Sans"', "system-ui", "sans-serif"],
-                mono: ['"JetBrains Mono"', "monospace"],
-            },
-            maxWidth: {
-                content: "1100px",
-            },
-            spacing: {
-                section: "160px",
-            },
-            fontSize: {
-                hero: ["clamp(3.5rem, 8vw, 6rem)", { lineHeight: "1.05", fontWeight: "400" }],
-                "section-heading": ["2.625rem", { lineHeight: "1.15", fontWeight: "400" }],
-                body: ["1rem", { lineHeight: "1.8", fontWeight: "300" }],
-                label: ["0.6875rem", { lineHeight: "1", fontWeight: "400", letterSpacing: "0.15em" }],
-            },
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "primary-bg": "#000000",
+        card: "#090909",
+        "card-hover": "#0A1628",
+        "accent-blue": "#0EA5E9",
+        "accent-cyan": "#06B6D4",
+        primary: "#FFFFFF",
+        secondary: "#888888",
+        muted: "#666666",
+        border: "rgba(255,255,255,0.06)",
+      },
+      fontFamily: {
+        heading: ['"Syne"', "sans-serif"],
+        sans: ['"DM Sans"', "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      boxShadow: {
+        glow: "0 0 40px rgba(14,165,233,0.15)",
+        "soft-glow": "0 0 30px rgba(14,165,233,0.1)",
+      },
+      animation: {
+        shimmer: "shimmer 2.5s linear infinite",
+        scanline: "scanline 2.2s linear infinite",
+        caret: "caret 1s steps(1) infinite",
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
         },
+        scanline: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(200%)" },
+        },
+        caret: {
+          "0%,49%": { opacity: "1" },
+          "50%,100%": { opacity: "0" },
+        },
+      },
     },
-    plugins: [],
+  },
+  plugins: [],
 };
 
 export default config;
